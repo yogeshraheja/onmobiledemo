@@ -1,0 +1,25 @@
+---
+- name: This playbook is for Docker Setup
+  hosts: "all"
+
+  tasks:
+    - name: Installing Docker Pre-reqs
+      apt: name={{ item }} state=present update_cache=yes
+      loop: [ 'ca-certificates', 'curl', 'gnupg', 'lsb-release' ]
+
+    - name: Adding a Docker GPG Key
+      apt_key: 
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Adding docker repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+
+    - name: Installing Docker Software
+      apt: name={{ item }} state=present update_cache=yes
+      loop: [ 'docker-ce', 'docker-ce-cli', 'containerd.io', 'docker-compose-plugin' ]
+
+    - name: Start Docker services
+      service: name=docker state=started
