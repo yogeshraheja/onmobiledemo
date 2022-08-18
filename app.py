@@ -6,7 +6,7 @@ app = Flask(__name__)
 def main():
     return "Hello everyone we are learning Docker"
 
-@app.route('thinknyxjenkins')
+@app.route('/thinknyxjenkins')
 def hello():
     return "We are trying to build this page using the power of Jenkins"
 
