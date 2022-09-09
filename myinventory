@@ -1,1 +1,1 @@
-ansibleworker ansible_connection=ssh ansible_user=root ansible_ssh_pass=ThinknyxOct@1610
+yogeshworker  ansible_connection=ssh ansible_user=root ansible_ssh_pass=thinknyx@123
