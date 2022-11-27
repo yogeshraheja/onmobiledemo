@@ -1,9 +1,9 @@
 ---
 - name: This playbook is for Docker Setup
   hosts: "all"
-  become: yes
-  become_method: su
-  gather_facts: no
+# become: yes
+#  become_method: su
+#  gather_facts: no
 
   tasks:
     - name: Installing Docker Pre-reqs
